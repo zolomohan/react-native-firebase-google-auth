@@ -6,7 +6,6 @@ import Authenticated from './screens/Authenticated';
 
 export default function App() {
   const [authenticated, setAuthenticated] = useState(false);
-  const [user, setUser] = useState({});
 
   useEffect(() => {
     GoogleSignin.configure({
@@ -32,11 +31,10 @@ export default function App() {
     } else {
       setAuthenticated(false);
     }
-    setUser(user);
   });
 
   if (authenticated) {
-    return <Authenticated user={user} />;
+    return <Authenticated />;
   }
 
   return <Authentication onGoogleButtonPress={onGoogleButtonPress} />;
